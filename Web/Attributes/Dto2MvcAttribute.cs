@@ -1,6 +1,6 @@
 ﻿namespace Web.Attributes;
 
-[AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = true)]
+[AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct, AllowMultiple = true)]
 public class Dto2MvcAttribute : Attribute
 {
     public string Controller { get; }

@@ -11,9 +11,9 @@ public class Program
         var builder = WebApplication.CreateBuilder(args);
 
         // Add services to the container.
-        var services = builder.Services;
-        services.AddControllersWithViews();
-        services.AddDto2Mvc<MyControllerBase>(typeof(CarModel));
+        builder.Services.AddControllersWithViews();
+        
+        Dto2MvcExtensions.AddDto2Mvc<MyControllerBase>(new PathString("/"), typeof(CarModel));
 
         var app = builder.Build();
 
