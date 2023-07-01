@@ -8,12 +8,12 @@ public class Program
 {
     public static void Main(string[] args)
     {
+        Dto2MvcExtensions.AddDto2Mvc<MyControllerBase>(Environment.CurrentDirectory, typeof(CarModel));
+
         var builder = WebApplication.CreateBuilder(args);
 
         // Add services to the container.
         builder.Services.AddControllersWithViews();
-
-        Dto2MvcExtensions.AddDto2Mvc<MyControllerBase>(Environment.CurrentDirectory, typeof(CarModel));
 
         var app = builder.Build();
 

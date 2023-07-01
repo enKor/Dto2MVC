@@ -4,7 +4,6 @@ using Dto2Mvc.Lib.Attributes;
 namespace Web.Models;
 
 [Dto2Mvc(Dto2MvcAttribute.HttpMethod.Get,"Cars","Load")]
-[Dto2Mvc(Dto2MvcAttribute.HttpMethod.Get,"Cars","Index")]
 [Dto2Mvc(Dto2MvcAttribute.HttpMethod.Post,"Cars","Save")]
 public class CarModel
 {
