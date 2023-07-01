@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+
+		<TargetFrameworks>net6.0;net7.0</TargetFrameworks>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+
+		<AssemblyName>Dto2Mvc.Lib</AssemblyName>
+		<RootNamespace>Dto2Mvc.Lib</RootNamespace>
+
+		<Version>0.1.0</Version>
+		<FileVersion>0.1.0</FileVersion>
+		<AssemblyVersion>0.1.0</AssemblyVersion>
+
+		<title>Dto2MVC</title>
+		<Copyright>Copyright © Martin Procházka (aka. EnKor) 2023</Copyright>
+
+		<Description>Automatic Controller and View generator from DTO</Description>
+		<PackageProjectUrl>https://github.com/enKor/Dto2MVC</PackageProjectUrl>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<!--<PackageIconUrl>https://github.com/enKor/Dto2MVC/blob/main/logo.png</PackageIconUrl>-->
+		<PackageTags>DtoToMVC, Dto2MVC, generator, controller, view, MVC, AspNetApp Core</PackageTags>
+		<Authors>Martin Procházka</Authors>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="..\LICENSE" Pack="true" PackagePath="" />
+		<None Include="..\README.md" Pack="true" PackagePath="" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="System.CodeDom" Version="7.0.0" />
+	  <FrameworkReference Include="Microsoft.AspNetCore.App" />
+
+	</ItemGroup>
+
+</Project>

@@ -1,5 +1,5 @@
+using Dto2Mvc.Lib.Extensions;
 using Web.Controllers;
-using Web.Extensions;
 using Web.Models;
 
 namespace Web;
@@ -12,8 +12,8 @@ public class Program
 
         // Add services to the container.
         builder.Services.AddControllersWithViews();
-        
-        Dto2MvcExtensions.AddDto2Mvc<MyControllerBase>(new PathString("/"), typeof(CarModel));
+
+        Dto2MvcExtensions.AddDto2Mvc<MyControllerBase>(Environment.CurrentDirectory, typeof(CarModel));
 
         var app = builder.Build();
 

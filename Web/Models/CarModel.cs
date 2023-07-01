@@ -1,5 +1,5 @@
 ﻿using System.Drawing;
-using Web.Attributes;
+using Dto2Mvc.Lib.Attributes;
 
 namespace Web.Models;
 
@@ -9,7 +9,7 @@ namespace Web.Models;
 public class CarModel
 {
     public bool IsNew { get; set; }
-    public string Model { get; set; }
+    public string? Type { get; set; }
     public int Length { get; set; }
     public Color Color { get; set; }
 }

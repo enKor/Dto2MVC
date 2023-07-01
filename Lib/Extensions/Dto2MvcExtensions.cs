@@ -1,12 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Dto2Mvc.Lib.Attributes;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.CSharp;
 using System.CodeDom;
 using System.CodeDom.Compiler;
 using System.Collections.Immutable;
 using System.Reflection;
-using Web.Attributes;
 
-namespace Web.Extensions;
+namespace Dto2Mvc.Lib.Extensions;
 
 public static class Dto2MvcExtensions
 {
@@ -16,7 +16,7 @@ public static class Dto2MvcExtensions
         var types = pivots
             .SelectMany(t => t.Assembly.GetTypes())
             .Distinct()
-            .Where(t => t.GetCustomAttribute<Dto2MvcAttribute>() != null)
+            .Where(t => t.GetCustomAttributes<Dto2MvcAttribute>().Any())
             .ToImmutableList();
 
         foreach (var t in types)
@@ -24,7 +24,7 @@ public static class Dto2MvcExtensions
             t.GenerateControllerAndView(webAppOutputPath);
         }
     }
-    
+
     public static void GenerateControllerAndView(this Type dtoType, string webAppOutputPath)
     {
         // Generování Controlleru
