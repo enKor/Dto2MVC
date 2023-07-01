@@ -25,12 +25,25 @@ internal static class Generator
             var viewName = attribute.Action;
             var viewCode = GenerateViewCode(dtoType, viewName);
 
-            var viewFilePath = Path.Combine(webAppOutputPath, "Views", controllerName, $"{viewName}.cshtml");
+            var viewFilePath = Path.Combine(webAppOutputPath, "Views", attribute.Controller, $"{viewName}.cshtml");
             Save(viewFilePath, viewCode);
         }
     }
 
-    private static void Save(string filepath, string content) => File.WriteAllText(filepath, content);
+    private static void Save(string filepath, string content)
+    {
+        CheckOrCreateDirectories(filepath);
+        File.WriteAllText(filepath, content);
+    }
+
+    private static void CheckOrCreateDirectories(string filepath)
+    {
+        var directoryPath = Path.GetDirectoryName(filepath)!;
+        if (!Directory.Exists(directoryPath))
+        {
+            Directory.CreateDirectory(directoryPath);
+        }
+    }
 
     private static string GenerateControllerCode(Type dtoType, string controllerName)
     {
