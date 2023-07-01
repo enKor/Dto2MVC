@@ -8,7 +8,10 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        Dto2MvcExtensions.AddDto2Mvc<MyControllerBase>(Environment.CurrentDirectory, typeof(CarModel));
+        Dto2MvcExtensions.AddDto2Mvc<MyControllerBase>(
+            Environment.CurrentDirectory, 
+            typeof(HomeController).Namespace!,
+            typeof(CarModel));
 
         var builder = WebApplication.CreateBuilder(args);
 

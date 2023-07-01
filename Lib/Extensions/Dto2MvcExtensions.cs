@@ -8,7 +8,7 @@ namespace Dto2Mvc.Lib.Extensions;
 
 public static class Dto2MvcExtensions
 {
-    public static void AddDto2Mvc<TControllerBase>(string webAppOutputPath, params Type[] pivots)
+    public static void AddDto2Mvc<TControllerBase>(string webAppOutputPath, string ns, params Type[] pivots)
         where TControllerBase : Controller
     {
         var types = pivots
@@ -19,7 +19,7 @@ public static class Dto2MvcExtensions
 
         foreach (var t in types)
         {
-            t.GenerateControllersAndViews<TControllerBase>(webAppOutputPath);
+            t.GenerateControllersAndViews<TControllerBase>(webAppOutputPath, ns);
         }
     }
 }
